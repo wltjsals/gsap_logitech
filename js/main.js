@@ -22,11 +22,23 @@ window.addEventListener("DOMContentLoaded", function () {
       gsap.to(".dot", 0.5, { scale: 0.15, background: "#4274ff" });
     });
 
-  $("#header")
+  $("#header, #menu .menu_header")
     .mouseenter(function () {
       $(this).addClass("on");
     })
     .mouseleave(function () {
       $(this).removeClass("on");
     });
+
+  $("#header .ham").click(function () {
+    $("#menu").fadeToggle().toggleClass("on");
+
+    //side image move half left and right
+    const sideImW = $(".star div:nth-child(1)").width();
+    $(".side").css("width", "calc(100% + #{sideImgW}px)");
+  });
+});
+
+$("#menu .menu_header .ham").click(function () {
+  $("#menu").fadeToggle().toggleClass("on");
 });
